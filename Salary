@@ -1,25 +1,34 @@
 #include <stdio.h>
 
 int main() {
-    double gross_salary, allowances, deductions, net_salary;
+    float grossSalary, allowances, deductions, netSalary;
 
-    printf("Enter gross salary: ");
-    scanf("%lf", &gross_salary);
+    // Input gross salary
+    printf("Enter the gross salary: ");
+    scanf("%f", &grossSalary);
 
-    if (gross_salary > 10000) {
-        allowances = 0.10 * gross_salary;
-        deductions = 0.03 * gross_salary;
-    } else if (gross_salary > 5000) {
-        allowances = 0.07 * gross_salary;
-        deductions = 0.02 * gross_salary;
+    // Calculate allowances and deductions based on gross salary
+    if (grossSalary > 10000) {
+        allowances = 0.10f * grossSalary;
+        deductions = 0.03f * grossSalary;
+    } else if (grossSalary > 5000) {
+        allowances = 0.07f * grossSalary;
+        deductions = 0.02f * grossSalary;
     } else {
-        allowances = 0.0;
-        deductions = 0.0;
+        // If gross salary <= 5000, no allowances and deductions defined in your prompt
+        allowances = 0;
+        deductions = 0;
     }
 
-    net_salary = gross_salary + allowances - deductions;
+    // Calculate net salary
+    netSalary = grossSalary + allowances - deductions;
 
-    printf("Net salary = %.2lf\n", net_salary);
+    // Display result
+    printf("Gross Salary: %.2f\n", grossSalary);
+    printf("Allowances: %.2f\n", allowances);
+    printf("Deductions: %.2f\n", deductions);
+    printf("Net Salary: %.2f\n", netSalary);
 
     return 0;
 }
+
